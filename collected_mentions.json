@@ -1,0 +1,450 @@
+{
+  "mentions": [
+    {
+      "source": "facebook",
+      "id": "fb_sim_973712_1759188687",
+      "user": "Branch",
+      "text": "Branch's analytics dashboard gives us incredible insights into user behavior across platforms.",
+      "timestamp": "2025-09-29T19:31:24.833945",
+      "url": "https://facebook.com/Branch/posts/fb_sim_973712_1759188687",
+      "metrics": {
+        "likes": 65,
+        "comments": 8,
+        "shares": 2
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "1936905920137799554",
+      "user": "developer_mike",
+      "text": "Struggling with Branch configuration for our web app, any tips?",
+      "timestamp": "2025-09-28T10:31:24.125820",
+      "url": "https://twitter.com/x/status/1936905920137799554",
+      "metrics": {
+        "likes": 26,
+        "retweets": 0,
+        "replies": 6
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_589967_1759188690",
+      "user": "Branch",
+      "text": "Branch makes cross-platform user experience seamless. Highly recommend for mobile apps.",
+      "timestamp": "2025-09-27T15:31:25.241067",
+      "url": "https://facebook.com/Branch/posts/fb_sim_589967_1759188690",
+      "metrics": {
+        "likes": 40,
+        "comments": 9,
+        "shares": 12
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "5543055200287117779",
+      "user": "mobile_dev",
+      "text": "Just tried the new Branch app features - really impressed with the user experience!",
+      "timestamp": "2025-09-27T12:31:23.194084",
+      "url": "https://twitter.com/x/status/5543055200287117779",
+      "metrics": {
+        "likes": 8,
+        "retweets": 1,
+        "replies": 10
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "7334460601789212276",
+      "user": "sarah_mobile",
+      "text": "Branch attribution is working great for our mobile campaigns @BranchApp",
+      "timestamp": "2025-09-27T01:31:23.404218",
+      "url": "https://twitter.com/x/status/7334460601789212276",
+      "metrics": {
+        "likes": 10,
+        "retweets": 10,
+        "replies": 4
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "6787865262212828288",
+      "user": "mobile_dev",
+      "text": "Comparing Branch vs other attribution platforms - Branch wins on ease of use",
+      "timestamp": "2025-09-27T00:31:23.921709",
+      "url": "https://twitter.com/x/status/6787865262212828288",
+      "metrics": {
+        "likes": 29,
+        "retweets": 4,
+        "replies": 12
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_441771_1759188691",
+      "user": "Branch",
+      "text": "The Branch SDK integration was surprisingly straightforward. Great documentation!",
+      "timestamp": "2025-09-26T23:31:25.446166",
+      "url": "https://facebook.com/Branch/posts/fb_sim_441771_1759188691",
+      "metrics": {
+        "likes": 95,
+        "comments": 24,
+        "shares": 12
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_445229_1759188692",
+      "user": "Branch",
+      "text": "Branch attribution is helping us optimize our marketing spend across different channels.",
+      "timestamp": "2025-09-26T21:31:25.649957",
+      "url": "https://facebook.com/Branch/posts/fb_sim_445229_1759188692",
+      "metrics": {
+        "likes": 73,
+        "comments": 14,
+        "shares": 3
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_813643_1759188693",
+      "user": "Branch",
+      "text": "Question for the community: anyone using Branch for web-to-app linking?",
+      "timestamp": "2025-09-26T00:31:25.855073",
+      "url": "https://facebook.com/Branch/posts/fb_sim_813643_1759188693",
+      "metrics": {
+        "likes": 59,
+        "comments": 17,
+        "shares": 14
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "5212054509720548603",
+      "user": "android_expert",
+      "text": "Having issues with Branch deep linking, anyone else experiencing this?",
+      "timestamp": "2025-09-26T00:31:23.299149",
+      "url": "https://twitter.com/x/status/5212054509720548603",
+      "metrics": {
+        "likes": 4,
+        "retweets": 8,
+        "replies": 15
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "9597751556411011896",
+      "user": "startup_founder",
+      "text": "Branch support team was super helpful with our implementation",
+      "timestamp": "2025-09-25T18:31:23.816873",
+      "url": "https://twitter.com/x/status/9597751556411011896",
+      "metrics": {
+        "likes": 5,
+        "retweets": 5,
+        "replies": 11
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "4556004818679021037",
+      "user": "product_manager",
+      "text": "Love how Branch handles cross-platform linking seamlessly",
+      "timestamp": "2025-09-25T09:31:23.711766",
+      "url": "https://twitter.com/x/status/4556004818679021037",
+      "metrics": {
+        "likes": 48,
+        "retweets": 13,
+        "replies": 7
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_829063_1759188686",
+      "user": "Branch",
+      "text": "Looking for the best attribution platform? Branch has been fantastic for our marketing team.",
+      "timestamp": "2025-09-25T03:31:24.631982",
+      "url": "https://facebook.com/Branch/posts/fb_sim_829063_1759188686",
+      "metrics": {
+        "likes": 100,
+        "comments": 21,
+        "shares": 10
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "1878165813872690805",
+      "user": "app_guru",
+      "text": "Question about Branch setup - does anyone have documentation for Unity integration?",
+      "timestamp": "2025-09-25T02:31:23.609873",
+      "url": "https://twitter.com/x/status/1878165813872690805",
+      "metrics": {
+        "likes": 44,
+        "retweets": 7,
+        "replies": 8
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_791610_1759188685",
+      "user": "Branch",
+      "text": "Just integrated Branch deep linking into our mobile app - the user experience is amazing!",
+      "timestamp": "2025-09-25T01:31:24.431337",
+      "url": "https://facebook.com/Branch/posts/fb_sim_791610_1759188685",
+      "metrics": {
+        "likes": 79,
+        "comments": 13,
+        "shares": 0
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "7019896680656502365",
+      "user": "app_guru",
+      "text": "Branch deep links are loading faster than expected, great performance!",
+      "timestamp": "2025-09-25T00:31:24.022787",
+      "url": "https://twitter.com/x/status/7019896680656502365",
+      "metrics": {
+        "likes": 3,
+        "retweets": 0,
+        "replies": 8
+      }
+    },
+    {
+      "source": "twitter",
+      "id": "2468127664823916171",
+      "user": "android_expert",
+      "text": "The Branch dashboard analytics are so helpful for understanding user behavior",
+      "timestamp": "2025-09-24T02:31:23.509290",
+      "url": "https://twitter.com/x/status/2468127664823916171",
+      "metrics": {
+        "likes": 9,
+        "retweets": 0,
+        "replies": 5
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_308623_1759188695",
+      "user": "Branch",
+      "text": "Branch's personalized onboarding features have improved our user retention significantly.",
+      "timestamp": "2025-09-23T20:31:26.056596",
+      "url": "https://facebook.com/Branch/posts/fb_sim_308623_1759188695",
+      "metrics": {
+        "likes": 27,
+        "comments": 4,
+        "shares": 0
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_116476_1759188694",
+      "user": "AndroidDev_Tom",
+      "text": "Branch has solved our deeplink routing issues completely. The fallback mechanisms work perfectly when the app isn't installed.",
+      "timestamp": "2025-09-22T20:31:27.415783",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_116476_1759188694",
+      "metrics": {
+        "rating": 3,
+        "helpful_count": 4,
+        "total_thumbs": 2
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_646447_1759188689",
+      "user": "Branch",
+      "text": "Thanks to Branch support team for helping us with our implementation - top-notch service!",
+      "timestamp": "2025-09-22T15:31:25.038327",
+      "url": "https://facebook.com/Branch/posts/fb_sim_646447_1759188689",
+      "metrics": {
+        "likes": 41,
+        "comments": 1,
+        "shares": 13
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_191031_1759188693",
+      "user": "TechGuru_101",
+      "text": "The Branch SDK is lightweight and doesn't impact app performance. Integration documentation is comprehensive and easy to follow.",
+      "timestamp": "2025-09-22T03:31:27.360671",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_191031_1759188693",
+      "metrics": {
+        "rating": 5,
+        "helpful_count": 17,
+        "total_thumbs": 11
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "facebook",
+      "id": "fb_sim_927722_1759188684",
+      "user": "Branch",
+      "text": "Branch is revolutionizing mobile linking! Check out their latest features for app developers.",
+      "timestamp": "2025-09-22T03:31:24.230446",
+      "url": "https://facebook.com/Branch/posts/fb_sim_927722_1759188684",
+      "metrics": {
+        "likes": 71,
+        "comments": 23,
+        "shares": 4
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_190095_1759188690",
+      "user": "Alex_Mobile",
+      "text": "Branch support team is incredible. They helped us with custom implementation and responded quickly to all our questions.",
+      "timestamp": "2025-09-20T11:31:27.203542",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_190095_1759188690",
+      "metrics": {
+        "rating": 3,
+        "helpful_count": 8,
+        "total_thumbs": 24
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_510059_1759188688",
+      "user": "GrowthHacker",
+      "text": "Love how Branch handles cross-platform linking. Users can seamlessly move between web and mobile without losing context. Great tool!",
+      "timestamp": "2025-09-20T05:31:27.093375",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_510059_1759188688",
+      "metrics": {
+        "rating": 4,
+        "helpful_count": 20,
+        "total_thumbs": 10
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_876344_1759188689",
+      "user": "DevSarah",
+      "text": "The Branch attribution features have been game-changing for our marketing campaigns. We can track user journeys across all touchpoints.",
+      "timestamp": "2025-09-18T17:31:27.148448",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_876344_1759188689",
+      "metrics": {
+        "rating": 5,
+        "helpful_count": 25,
+        "total_thumbs": 21
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_637929_1759188696",
+      "user": "Sarah_Dev",
+      "text": "Branch makes complex linking scenarios simple. The ability to preserve context across app installs is incredible for UX.",
+      "timestamp": "2025-09-16T21:31:27.520996",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_637929_1759188696",
+      "metrics": {
+        "rating": 4,
+        "helpful_count": 14,
+        "total_thumbs": 11
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_488280_1759188687",
+      "user": "Sarah_Dev",
+      "text": "Branch has made deep linking so much easier for our app. The SDK integration was smooth and the analytics are fantastic. Highly recommend!",
+      "timestamp": "2025-09-13T17:31:27.038231",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_488280_1759188687",
+      "metrics": {
+        "rating": 5,
+        "helpful_count": 18,
+        "total_thumbs": 15
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_551284_1759188691",
+      "user": "TechGuru_101",
+      "text": "Using Branch for our referral program has increased user acquisition significantly. The personalized onboarding is a great feature.",
+      "timestamp": "2025-09-06T23:31:27.254951",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_551284_1759188691",
+      "metrics": {
+        "rating": 5,
+        "helpful_count": 16,
+        "total_thumbs": 0
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_387431_1759188692",
+      "user": "DevSarah",
+      "text": "Branch analytics dashboard provides insights we never had before. Understanding user behavior across platforms is so valuable.",
+      "timestamp": "2025-09-06T16:31:27.305556",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_387431_1759188692",
+      "metrics": {
+        "rating": 5,
+        "helpful_count": 25,
+        "total_thumbs": 3
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    },
+    {
+      "source": "google_play",
+      "id": "gp_sim_823360_1759188695",
+      "user": "MobileMike",
+      "text": "Outstanding tool for mobile attribution. Branch has become essential to our growth stack. The team keeps adding great features.",
+      "timestamp": "2025-08-30T23:31:27.470514",
+      "url": "https://play.google.com/store/apps/details?id=io.branch.referral.branch&reviewId=gp_sim_823360_1759188695",
+      "metrics": {
+        "rating": 4,
+        "helpful_count": 19,
+        "total_thumbs": 29
+      },
+      "app_info": {
+        "app_id": "io.branch.referral.branch",
+        "app_name": "Branch (Simulated)"
+      }
+    }
+  ],
+  "summary": {
+    "total_mentions": 30,
+    "by_source": {
+      "facebook": 10,
+      "twitter": 10,
+      "google_play": 10
+    },
+    "date_range": {
+      "earliest": "2025-08-30T23:31:27.470514",
+      "latest": "2025-09-29T19:31:24.833945",
+      "span_days": 29
+    },
+    "avg_text_length": 95.56666666666666,
+    "processed_at": "2025-09-30T00:31:28.382376"
+  },
+  "collection_timestamp": "2025-09-30T00:31:28.382920"
+}
