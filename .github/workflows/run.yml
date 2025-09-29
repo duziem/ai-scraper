@@ -43,7 +43,6 @@ jobs:
           hf-${{ runner.os }}-
           
     - name: Prepare Google service account file
-      if: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE != '' }}
       run: |
         echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE }}" > service_account.json
         echo "GOOGLE_SERVICE_ACCOUNT_FILE=$GITHUB_WORKSPACE/service_account.json" >> $GITHUB_ENV
