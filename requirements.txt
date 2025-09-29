@@ -1,5 +1,5 @@
 # Branch Social Listening Scraper - MVP Requirements
-# Python 3.8+ required
+# Python 3.10+ required (updated from 3.8 for better compatibility)
 
 # Scraping Libraries
 snscrape>=0.7.0                    # Twitter/X data collection
