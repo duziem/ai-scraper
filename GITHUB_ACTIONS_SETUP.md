@@ -35,22 +35,30 @@ git push -u origin main
 
 #### Secret #1: Google Service Account JSON
 - **Name**: `GOOGLE_SERVICE_ACCOUNT_FILE`
-- **Value**: Copy the ENTIRE contents of your `your-project-id-123456-13efdda05630.json` file
+- **Value**: Copy the ENTIRE contents of your downloaded Google service account JSON file
+  
+  **Example format** (replace with your actual values):
   ```json
   {
     "type": "service_account",
     "project_id": "your-project-id-123456",
     "private_key_id": "your-private-key-id-here",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDPNVjBuCQYqY8K\nWd8WK/51vK0FZ4bl3z375CWaJBYro4A84NzeCC2vRdOvKgQy5cJEYoXcsxwi3YNE\nl70h2jbJD1dp0p74WKYe4/BaNlXyYNACdDu7TJ+GucRsqc8qsJ9CNUe+byO82L6J\n1FMl3V4iayh615i6qTnIgUDdbqd6zgBZpXu3j+HOGTDLkquF7AxNdwf06uiWmqCz\nn3VFku44DlFla6mE+frmRLLcUEOmnURMjAmP8G2FdLF3m97LaN1m9yDe886VwiTq\nGoUrOBodkp4pDY8fn0meShQoScDuSZKoZkBogEb7/OtfXGNbZUCkzGsuzAOZyWx2\nxM/8e9cnAgMBAAECggEAOFHCpxy6yu1DUMfup+MbTbsTuBVUiCRuf4maYtQOJpxR\nHbrsrXjBmhM7ny+nZoImlFnHEp6oNh3JMRqhMJNUMr/1vXCe/tdxh5Hi4VJFeBSy\nVQhst9LyxTa22eYpxeutzdwXfP5OU2UCHQpV80PA80/297Sj8ZBPgV0IWWdbJDhe\ndhIA3EM6guOZtJPPKviKj4HjiaTCjgN2g3FxhK+dD2jPoMrYdG8u0Ko/ToS8+ZIn\nh5eG6PEizW32a5N+jLjPljsq50R2HEJ/AYiPXcMcNGJ2TNBR1AausPUSiOh7mfBZ\n2GuFgDEhHkV7RK+SKj+nT29BX6YRdKE67HznWH9AWQKBgQDwMONUxFpQrUerzhY5\nY5BrOIPcu9eVBKRsLXvt7fblMOyb8yG5FXXpLZal32x4BksObxG6WmMDoyRBLxKo\nHQHG8IsxBO5qRBwbXnGsixmfrbFNO0hNqdVuhJZhUmGsTWAAVvjhruAy3YGJxEGh\ncJRXkMLT+hfUlmOUkfOQts7PkwKBgQDc2Ld5oCeolLHHU5t2l7D1r7IuHkwMSmfY\n/jpWO5yke/0IN78ttjbysgoScCJrYC3dBiX8BSJSF04vNzgzEiZ4C23cW4vgDCOg\nURoRB3GII+5xHfa2mPLC47nUAV2ljzFnTrD9O5ejVwZ5u7dATZRtUuPwpCm9wW/h\njjePeVGOnQKBgQDAtSifaQ5hLjWTpTx1fOlw7R32qosT126oEHIe+k6dofwkPxSu\nb4ZzuAznNnPLdJkhkoFxt3U7hNfgqIjacrNrTrEOejti7RRz7PldCxla4LuhEFA5\nZ2qDSkNw/+y3ljjQ7Pav82OTy95Tjy9s/Gs4Oj/mXQBjoulwWQ1G7TTOmwKBgQCw\nGxCTqCZ3w7rQG9eIhgXSpLwNEpPJ6TtOScvzH64Va9mmR+3nYboHZfmqIkkQHq3z\n5gc8JEvt8i+ibwIdl4edil+crFOp4YQ3PvTuR2U9DooBIceua+CJkFaKvFwUvU7D\n9ngkNvUAh1DemdXTLQoC82pYZk/yxOGWl3Wurytd8QKBgQCRYMSuNJRszwRgo1gV\nf8sTLtwJfTbSvtFrSaelqoaAfdDS9pkKcO17BUVHH4qzRyhI8JjAtyPA3Mr6uNf2\nere9rsAD/PIx7DXSyLEKZ16Wn9DP1viv3dD35psuZDAk80KMEG0uIKOqISiSqT/p\na9nb85iQMMkRtCk3vvrrNAmN6A==\n-----END PRIVATE KEY-----\n",
-    "client_email": "branch-scraper@your-project-id-123456.iam.gserviceaccount.com",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR_ACTUAL_PRIVATE_KEY_CONTENT_HERE\n-----END PRIVATE KEY-----\n",
+    "client_email": "your-service-account@your-project.iam.gserviceaccount.com",
     "client_id": "123456789012345678901",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/branch-scraper%40your-project-id-123456.iam.gserviceaccount.com",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account%40your-project.iam.gserviceaccount.com",
     "universe_domain": "googleapis.com"
   }
   ```
+  
+  📋 **How to get this:**
+  1. Go to your Google Cloud Console
+  2. Navigate to your service account in IAM & Admin
+  3. Download the JSON key file you created earlier
+  4. Copy the entire contents of that file
 - Click **"Add secret"**
 
 #### Secret #2: Google Sheet Name
