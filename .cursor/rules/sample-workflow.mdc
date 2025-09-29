@@ -1,0 +1,164 @@
+---
+alwaysApply: false
+---
+# Customer Support Ticketing System - Development Agent Workflow
+
+## Primary Directive
+You are a development agent implementing a Customer Support Ticketing System using Ruby on Rails backend, Vue.js frontend, PostgreSQL database, and AWS cloud services. Follow established documentation and maintain consistency with the specified technical stack and business requirements.
+
+## Core Workflow Process
+
+### Before Starting Any Task
+- Consult `/Docs/Implementation.md` for current stage and available tasks
+- Check task dependencies and prerequisites
+- Verify scope understanding against PRD requirements
+- Ensure compliance with mandatory tech stack (Rails, Vue.js, PostgreSQL, GraphQL, AWS)
+
+### Task Execution Protocol
+
+#### 1. Task Assessment
+- Read subtask from `/Docs/Implementation.md`
+- Assess subtask complexity:
+- **Simple subtask:** Implement directly
+- **Complex subtask:** Create a todo list using todo_write tool
+
+#### 2. Documentation Research
+- Check `/Docs/Implementation.md` for relevant documentation links in the subtask
+- Read and understand documentation before implementing
+- Reference official Rails, Vue.js, GraphQL, and AWS documentation as needed
+
+#### 3. Tech Stack Compliance Check
+- Verify implementation aligns with mandatory technologies:
+  - Ruby on Rails for backend API
+  - Vue.js for frontend components
+  - PostgreSQL for data persistence
+  - GraphQL for API layer
+  - AWS S3 for file storage
+  - AWS SES for email notifications
+- Consult PRD for any specific requirements before implementation
+
+#### 4. UI/UX Implementation
+- Consult `/Docs/UI_UX_doc.md` before implementing any UI/UX elements
+- Follow design system specifications for customer support system
+- Ensure responsive design for both customer and agent interfaces
+- Maintain accessibility standards (WCAG 2.0)
+
+#### 5. Project Structure Compliance
+- Check `/Docs/project_structure.md` before:
+  - Creating Rails models, controllers, or services
+  - Building Vue.js components or pages
+  - Setting up database migrations
+  - Configuring AWS services (S3, SES)
+  - Adding dependencies to Rails or Vue.js projects
+
+#### 6. Security Implementation
+- Implement JWT authentication with proper security measures
+- Include email verification for account creation
+- Follow role-based access control (Customer vs Agent)
+- Adhere to OWASP Top 10 security guidelines
+- Secure file uploads with type validation and virus scanning
+
+#### 7. AWS Integration Requirements
+- Properly configure AWS S3 for file storage (5MB limit, multiple formats)
+- Set up AWS SES for email notifications and reminders
+- Ensure secure AWS credentials management
+- Follow AWS best practices for scalability and cost optimization
+
+#### 8. Error Handling
+- Check `/Docs/Bug_tracking.md` for similar issues before fixing
+- Document all errors and solutions in Bug_tracking.md
+- Include error details, root cause, and resolution steps
+- Test error scenarios for both customer and agent workflows
+
+#### 9. Testing Requirements
+- Implement unit tests for Rails models and services
+- Create integration tests for GraphQL API endpoints
+- Develop end-to-end tests for critical user journeys
+- Test file upload functionality with various formats
+- Validate email notification workflows
+
+#### 10. Task Completion
+Mark tasks complete only when:
+- All functionality implemented correctly
+- Code follows project structure guidelines
+- UI/UX matches specifications for customer support system
+- Security requirements are met (JWT, role-based access)
+- AWS integrations work properly (S3 file storage, SES emails)
+- No errors or warnings remain
+- All task list items completed (if applicable)
+- Tests pass with adequate coverage (>80%)
+
+### File Reference Priority
+1. `/Docs/Bug_tracking.md` - Check for known issues first
+2. `support_system_prd.md` - Original requirements reference
+3. `/Docs/Implementation.md` - Main task reference and current stage
+4. `/Docs/project_structure.md` - Structure guidance for Rails/Vue.js/AWS setup
+5. `/Docs/UI_UX_doc.md` - Design requirements for customer/agent interfaces
+
+## Critical Rules
+
+### Technical Stack Compliance
+- **MANDATORY:** Use Ruby on Rails for all backend development
+- **MANDATORY:** Use Vue.js for all frontend development
+- **MANDATORY:** Use PostgreSQL for database operations
+- **MANDATORY:** Use GraphQL for API communication
+- **MANDATORY:** Use AWS services (S3, SES, EC2, RDS) for cloud infrastructure
+- **NEVER** deviate from these specified technologies without explicit approval
+
+### Security Requirements
+- **ALWAYS** implement JWT authentication with email verification
+- **ALWAYS** follow role-based access control (Customer/Agent roles)
+- **ALWAYS** secure file uploads with validation and scanning
+- **ALWAYS** protect against OWASP Top 10 vulnerabilities
+- **NEVER** store sensitive data insecurely
+
+### Customer Support System Specific Rules
+- **ALWAYS** maintain separation between customer and agent functionality
+- **ALWAYS** implement proper ticket workflow (Open → In Progress → Resolved → Closed)
+- **ALWAYS** include SLA tracking in ticket management
+- **ALWAYS** support file uploads up to 5MB (images, PDFs)
+- **ALWAYS** implement email notifications for status changes
+- **NEVER** allow customers to comment before agent response
+- **NEVER** expose internal agent notes to customers
+
+### AWS Integration Rules
+- **ALWAYS** use AWS S3 for secure file storage
+- **ALWAYS** configure AWS SES for email delivery
+- **ALWAYS** implement proper error handling for AWS service failures
+- **ALWAYS** follow AWS security best practices
+- **NEVER** hardcode AWS credentials in source code
+
+### Performance and Scalability
+- **ALWAYS** optimize for 2-second page load times
+- **ALWAYS** design for 1,000-5,000 concurrent users
+- **ALWAYS** implement efficient database queries with proper indexing
+- **ALWAYS** use connection pooling for database connections
+- **NEVER** implement blocking operations that could impact performance
+
+### Documentation Requirements
+- **ALWAYS** update relevant documentation when making changes
+- **ALWAYS** document API endpoints in GraphQL schema
+- **ALWAYS** document database schema changes
+- **ALWAYS** document AWS configuration requirements
+- **NEVER** skip documentation consultation
+- **NEVER** mark tasks complete without proper testing
+- **NEVER** ignore project structure guidelines
+- **NEVER** implement UI without checking UI_UX_doc.md
+- **NEVER** fix errors without checking Bug_tracking.md first
+- **ALWAYS** document errors and solutions
+
+### Quality Assurance
+- **ALWAYS** maintain code coverage above 80%
+- **ALWAYS** conduct security vulnerability scans
+- **ALWAYS** test across multiple devices and browsers
+- **ALWAYS** validate accessibility compliance (WCAG 2.0)
+- **ALWAYS** perform cross-browser testing for Vue.js components
+
+### Deployment Readiness
+- **ALWAYS** ensure applications deploy successfully to AWS
+- **ALWAYS** configure proper environment variables
+- **ALWAYS** set up database backups and monitoring
+- **ALWAYS** implement proper logging and error tracking
+- **ALWAYS** create setup.sh script for automated deployment
+
+Remember: Build a cohesive, well-documented, and maintainable Customer Support Ticketing System. Every decision should support the business goals of efficient ticket management, secure user access, and scalable AWS infrastructure while maintaining consistency with the established PRD requirements and technical specifications.

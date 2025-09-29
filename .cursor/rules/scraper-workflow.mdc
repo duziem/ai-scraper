@@ -1,0 +1,193 @@
+---
+alwaysApply: true
+---
+# Branch Social Listening Scraper - Development Agent Workflow
+
+## Primary Directive
+You are a development agent implementing a Branch Social Listening Scraper MVP using Python automation scripts, sentiment analysis, and basic data pipeline integration. Focus on simple, working demo functionality rather than production-grade reliability.
+
+## Core Workflow Process
+
+### Before Starting Any Task
+- Consult the Branch Scraper PRD for MVP scope and requirements
+- Check task dependencies and prerequisites
+- Verify scope understanding against demo success criteria
+- Ensure compliance with specified tools (snscrape, facebook-scraper, google-play-scraper, transformers, gspread)
+
+### Task Execution Protocol
+
+#### 1. Task Assessment
+- Read requirements from PRD or implementation plan
+- Assess task complexity:
+  - **Simple task:** Implement directly with basic error handling
+  - **Complex task:** Create a todo list using todo_write tool
+
+#### 2. MVP Scope Validation
+- Verify implementation aligns with demo-only requirements
+- Focus on functional simplicity over robust architecture
+- Use exactly the specified tools and libraries:
+  - Python 3.8+ for all automation scripts
+  - snscrape for Twitter data collection
+  - facebook-scraper for Facebook posts/comments
+  - google-play-scraper for Google Play reviews
+  - Hugging Face transformers for sentiment analysis
+  - gspread for Google Sheets integration
+  - Slack webhooks for alerting
+
+#### 3. Data Collection Implementation
+- Implement scrapers with basic rate limiting
+- Target data volumes specified in PRD:
+  - Twitter: ~100 recent tweets containing "Branch OR @BranchApp"
+  - Facebook: ~20 latest posts/comments from Branch page
+  - Google Play: ~100 newest reviews of Branch app
+- Include basic deduplication by source ID
+- Handle scraping errors gracefully (log and continue)
+
+#### 4. Sentiment Analysis Integration
+- Use cardiffnlp/twitter-roberta-base-sentiment model
+- Normalize outputs to positive/neutral/negative
+- Process text with proper encoding handling
+- Apply sentiment analysis to all collected mentions
+
+#### 5. Data Storage and Structure
+- Format data for Google Sheets compatibility
+- Include required columns: timestamp, source, id, user, text, sentiment_label, sentiment_score
+- Use gspread library for Google Sheets API integration
+- Append new data rather than overwriting
+
+#### 6. Alerting Logic
+- Calculate negative sentiment percentage for current run
+- Trigger Slack alert if ≥20% negative sentiment
+- Include top 3 negative mentions in alert message
+- Use Slack webhook for simple notification delivery
+
+#### 7. Automation Setup
+- Create GitHub Actions workflow for daily execution
+- Use cron syntax for scheduling
+- Include all necessary environment variables and secrets
+- Test both manual and automated execution
+
+#### 8. Error Handling Strategy
+- Catch scraping exceptions and log warnings
+- Handle malformed text with encoding fixes
+- Skip empty batches gracefully
+- Print meaningful error messages for troubleshooting
+
+#### 9. Testing Requirements
+- Test each scraper individually with real data
+- Verify sentiment analysis pipeline works correctly
+- Confirm Google Sheets integration writes data properly
+- Test Slack alerting with sample negative data
+- Validate GitHub Actions workflow execution
+
+#### 10. Task Completion
+Mark tasks complete only when:
+- Functionality works with real data sources
+- Basic error handling prevents crashes
+- Console logging provides useful debugging information
+- Demo success criteria can be achieved
+- README documentation is clear and complete
+
+### Project Structure Compliance
+Follow the PRD-specified directory structure:
+```
+├── /scrapers/
+│   ├── twitter.py
+│   ├── facebook.py
+│   └── google_play.py
+├── /analyze/
+│   └── sentiment.py
+├── /store/
+│   └── sheets.py
+├── /alerts/
+│   └── slack.py
+├── run_all.py
+├── requirements.txt
+├── README.md
+└── /.github/workflows/
+    └── run.yml
+```
+
+## Critical Rules
+
+### MVP Scope Compliance
+- **MANDATORY:** Keep implementation simple and demo-focused
+- **MANDATORY:** Use exactly the tools specified in PRD
+- **MANDATORY:** Target ~50+ mentions across all 3 sources
+- **NEVER** add complex features beyond PRD scope
+- **NEVER** implement database or persistent storage beyond Google Sheets
+
+### Tool and Library Requirements
+- **MANDATORY:** Use snscrape for Twitter scraping
+- **MANDATORY:** Use facebook-scraper for Facebook data
+- **MANDATORY:** Use google-play-scraper for Google Play reviews
+- **MANDATORY:** Use Hugging Face transformers with cardiffnlp/twitter-roberta-base-sentiment
+- **MANDATORY:** Use gspread for Google Sheets integration
+- **NEVER** substitute alternative libraries without PRD approval
+
+### Data Collection Rules
+- **ALWAYS** implement basic deduplication by ID
+- **ALWAYS** handle rate limits and scraping errors gracefully
+- **ALWAYS** ensure proper text encoding (utf-8 with error handling)
+- **ALWAYS** log useful debugging information
+- **NEVER** crash on empty results or API failures
+
+### Sentiment Analysis Rules
+- **ALWAYS** use the specified Hugging Face model
+- **ALWAYS** normalize sentiment outputs to 3 classes
+- **ALWAYS** apply sentiment analysis to all collected text
+- **NEVER** skip sentiment processing for performance reasons
+
+### Storage and Alerting Rules
+- **ALWAYS** append data to Google Sheets (never overwrite)
+- **ALWAYS** include all required columns in correct format
+- **ALWAYS** calculate negative sentiment percentage accurately
+- **ALWAYS** trigger Slack alerts when threshold is met (≥20%)
+- **NEVER** send duplicate or spam alerts
+
+### Automation Requirements
+- **ALWAYS** create working GitHub Actions workflow
+- **ALWAYS** use proper cron scheduling (daily execution)
+- **ALWAYS** handle environment variables and secrets securely
+- **NEVER** hardcode credentials or sensitive information
+
+### Error Handling Standards
+- **ALWAYS** catch and log exceptions without crashing
+- **ALWAYS** provide meaningful error messages
+- **ALWAYS** continue processing other sources if one fails
+- **NEVER** fail silently without logging
+
+### Documentation Requirements
+- **ALWAYS** create clear setup instructions in README
+- **ALWAYS** document Google service account setup
+- **ALWAYS** explain Slack webhook configuration
+- **ALWAYS** provide GitHub Actions setup steps
+- **NEVER** assume users know how to configure external services
+
+### Quality Standards
+- **ALWAYS** test with real data sources before marking complete
+- **ALWAYS** verify end-to-end pipeline functionality
+- **ALWAYS** ensure demo can run successfully from scratch
+- **NEVER** mark tasks complete without successful execution
+
+## Demo Success Criteria
+
+### Functional Requirements
+- Running `python run_all.py` locally fetches 50+ mentions across 3 sources
+- Google Sheet shows new rows with proper sentiment analysis
+- Slack alert triggers when negative sentiment ≥20%
+- GitHub Actions workflow runs successfully on schedule
+
+### Technical Validation
+- All scrapers handle their respective APIs correctly
+- Sentiment analysis processes all collected text
+- Google Sheets integration works without authentication errors
+- Slack webhook delivers formatted alert messages
+
+### Documentation Completeness
+- README provides complete setup instructions
+- All external service configurations are documented
+- Local testing steps are clear and accurate
+- Troubleshooting guidance is included
+
+Remember: Build a simple, working social listening demo that successfully demonstrates automated mention collection, sentiment analysis, and basic alerting. Prioritize functionality over sophistication, and ensure the demo works reliably for its intended scope.
