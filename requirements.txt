@@ -4,7 +4,7 @@
 # Scraping Libraries
 snscrape>=0.7.0                    # Twitter/X data collection
 facebook-scraper>=0.2.59           # Facebook posts/comments
-google-play-scraper>=3.5.2         # Google Play app reviews
+google-play-scraper>=1.2.7         # Google Play app reviews
 
 # Sentiment Analysis
 torch>=1.13.0                      # PyTorch for transformers
