@@ -78,4 +78,5 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-branch-scraper-473602-13efdda05630.json
+# Specific service account file (if you accidentally put it here)
+# branch-scraper-*.json
