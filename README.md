@@ -118,34 +118,31 @@ Expected output:
 
 ## 🤖 GitHub Actions Automation
 
-### Setup Automated Daily Runs
+### Quick Setup
 
-1. In your GitHub repository, go to "Settings" > "Secrets and variables" > "Actions"
-
-2. Add these repository secrets:
-   ```
-   GOOGLE_SERVICE_ACCOUNT_FILE: <contents of your service account JSON file>
-   GOOGLE_SHEET_NAME: Branch Social Listening Data
-   SLACK_WEBHOOK_URL: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
-   ```
-
-3. Optional secrets (will use defaults if not set):
-   ```
-   TWITTER_QUERY: Branch OR @BranchApp
-   FACEBOOK_PAGE: Branch  
-   GOOGLE_PLAY_APP_ID: io.branch.referral.branch
-   NEGATIVE_SENTIMENT_THRESHOLD: 0.20
+1. **Push to GitHub** (if not already done):
+   ```bash
+   # Use the automated script
+   ./push-to-github.sh
+   
+   # OR manually:
+   git remote add origin https://github.com/USERNAME/REPO.git
+   git branch -M main
+   git push -u origin main
    ```
 
-4. The workflow runs daily at 9 AM UTC. To modify:
-   - Edit `.github/workflows/run.yml`
-   - Change the cron schedule: `'0 9 * * *'`
-   - Use [crontab.guru](https://crontab.guru/) for cron syntax help
+2. **Configure Secrets**: 
+   📚 **[Follow the detailed GitHub Actions setup guide](GITHUB_ACTIONS_SETUP.md)** for complete step-by-step instructions.
 
-5. Manual trigger:
-   - Go to "Actions" tab in your repository
-   - Select "Branch Social Listening Scraper" workflow
-   - Click "Run workflow"
+3. **Required Secrets** (add in GitHub Settings → Secrets and variables → Actions):
+   - `GOOGLE_SERVICE_ACCOUNT_FILE` - Your Google service account JSON
+   - `GOOGLE_SHEET_NAME` - Name of your Google Sheet  
+   - `SLACK_WEBHOOK_URL` - Your Slack webhook URL
+
+4. **Test Workflow**:
+   - Go to repository "Actions" tab
+   - Click "Branch Social Listening Scraper" workflow
+   - Click "Run workflow" to test manually
 
 ## 📊 Expected Data Format
 
