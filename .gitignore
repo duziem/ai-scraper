@@ -78,3 +78,4 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+branch-scraper-473602-13efdda05630.json
