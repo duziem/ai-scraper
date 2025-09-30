@@ -4,6 +4,43 @@ This document records ongoing code and workflow reviews for the Branch Social Li
 
 ---
 
+### 2025-09-30 – Repository diff review: staged changes and demo criteria
+
+**Scope**: `run_all.py`, `scrapers/twitter.py`, `scrapers/facebook.py`, `scrapers/google_play.py`, `scrapers/data_processor.py`, `collected_mentions.json`.
+
+**Summary**
+- Identified one blocker for CI (missing tracked module) and one logic issue that can fail the demo’s 50+ mentions requirement.
+
+**Findings & Recommendations**
+1) Missing module in VCS
+   - Finding: `scrapers/data_processor.py` is untracked while imported by `run_all.py` → will raise `ModuleNotFoundError` in CI.
+   - Recommendation: Add and commit `scrapers/data_processor.py`.
+
+2) Twitter simulation caps at 10 items
+   - Finding: `scrapers/twitter.py` generates at most the length of `sample_tweets` (10) even when `limit` is higher.
+   - Recommendation: Iterate `for i in range(limit):` and index sample with modulo to produce up to `limit` items. Keep dedup by ID.
+
+3) Demo success criteria (≥50 mentions)
+   - Finding: Current collection targets: Twitter (10 simulated), Facebook (10), Google Play (25) ≈ 45 before dedup.
+   - Recommendation: After fixing (2), set Twitter `limit` to 50; optionally bump Facebook `limit` in `run_all.py` from 10 → 20 to comfortably exceed 50 even after deduplication.
+
+4) Credentials write robustness (non-blocking)
+   - Finding: Workflow uses `echo` to write JSON secrets; special chars can be altered.
+   - Recommendation: Prefer `printf '%s'` when writing `service_account.json`.
+
+5) Dependency stability (non-blocking)
+   - Finding: Broad `>=` specifiers may pull breaking releases over time.
+   - Recommendation: Pin versions once a green build is achieved to stabilize CI.
+
+**Action Items**
+- [ ] Commit `scrapers/data_processor.py`
+- [ ] Update Twitter simulation to generate up to `limit`
+- [ ] Increase Facebook `limit` in `run_all.py` to 20
+- [ ] Switch workflow secret write to `printf '%s'`
+- [ ] Pin dependency versions after confirming a green run
+
+---
+
 ### 2025-09-29 – CI/CD: GitHub Actions `run.yml` readiness review
 
 **Scope**: `.github/workflows/run.yml`, dependency installation, secrets usage, logging/artifacts, and performance/cache considerations.

@@ -1,0 +1,25 @@
+# Branch Social Listening Scraper - MVP Requirements
+# Python 3.10+ required (updated from 3.8 for better compatibility)
+
+# Scraping Libraries
+snscrape>=0.7.0                    # Twitter/X data collection
+facebook-scraper>=0.2.59           # Facebook posts/comments
+google-play-scraper>=1.2.7         # Google Play app reviews
+
+# Sentiment Analysis
+torch>=1.13.0                      # PyTorch for transformers
+transformers>=4.25.0               # Hugging Face transformers
+scipy>=1.9.0                       # Required for sentiment pipeline
+
+# Data Storage & Integration
+gspread>=5.7.0                     # Google Sheets API
+google-auth>=2.15.0                # Google authentication
+google-auth-oauthlib>=0.8.0        # OAuth for Google services
+google-auth-httplib2>=0.1.0        # HTTP transport for Google auth
+
+# Alerting & Communication
+requests>=2.28.0                   # HTTP requests for Slack webhooks
+
+# Utilities
+python-dateutil>=2.8.2             # Date parsing utilities
+pytz>=2022.7                       # Timezone handling
