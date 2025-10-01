@@ -88,6 +88,45 @@ Mark tasks complete only when:
 - Demo success criteria can be achieved
 - README documentation is clear and complete
 
+#### 11. Code Quality Requirements (MANDATORY)
+
+Before writing ANY code, the agent MUST:
+1. List all variables that will be used and their initialization points
+2. Identify all external API calls and their required parameters
+3. Plan error handling for each operation that can fail
+4. Verify all imports are necessary and used
+
+#### 12. Post-Generation Review (MANDATORY)
+
+After writing code, the agent MUST:
+1. Trace each variable from declaration to usage
+2. Verify no variables are referenced before initialization
+3. Confirm all function calls include required arguments
+4. Check that all imported modules are actually used
+5. Add try-except blocks around all I/O, API calls, and data parsing
+
+Agent must perform these checks and FIX issues before marking complete:
+
+1. **Variable Check**: List every variable and verify:
+   - Initialized before use
+   - Actually used after declaration
+   
+2. **Null Safety**: Find all these patterns and add checks:
+   - Dictionary access: data['key'] → data.get('key')
+   - Object properties: obj.property → getattr(obj, 'property', None)
+   - API returns: Assume everything can return None
+   
+3. **Import Audit**: 
+   - Remove unused imports
+   - Add missing imports (especially from typing)
+   
+4. **Argument Validation**: For each external library call:
+   - Check documentation for required args
+   - Verify all required args are provided
+   - Add validation for optional args with defaults
+
+Only respond "COMPLETE" after all checks pass.
+
 ### Project Structure Compliance
 Follow the PRD-specified directory structure:
 ```
