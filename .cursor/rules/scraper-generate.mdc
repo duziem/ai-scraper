@@ -118,6 +118,17 @@ For each stage, create:
 
 ## Implementation Stages
 
+## Pre-Code Generation Checklist
+
+For EACH file/function being created:
+- [ ] List all third-party library methods and their required parameters
+- [ ] Document initialization order for all variables
+- [ ] Identify potential None/null returns and add checks
+- [ ] Plan error handling strategy (specific exceptions to catch)
+- [ ] Verify import statements match actual usage
+
+ONLY proceed with code generation after completing this checklist.
+
 ### Stage 1: Environment & Dependencies
 **Duration:** 1-2 days
 **Dependencies:** None

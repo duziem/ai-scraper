@@ -115,6 +115,9 @@ def main():
         # Exit successfully
         return 0
         
+        # Exit successfully
+        return 0
+        
     except Exception as e:
         logger.error(f"Pipeline failed with error: {e}")
         logger.error(f"Error type: {type(e).__name__}")

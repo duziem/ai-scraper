@@ -44,7 +44,7 @@ jobs:
           
     - name: Prepare Google service account file
       run: |
-        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE }}" > service_account.json
+        printf '%s' "${{ secrets.GOOGLE_SERVICE_ACCOUNT_FILE }}" > service_account.json
         echo "GOOGLE_SERVICE_ACCOUNT_FILE=$GITHUB_WORKSPACE/service_account.json" >> $GITHUB_ENV
         
     - name: Run Branch Social Listening Scraper
