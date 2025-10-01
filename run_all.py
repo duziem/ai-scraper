@@ -90,8 +90,8 @@ def main():
         if summary['date_range']:
             logger.info(f"   Date range: {summary['date_range']['span_days']} days")
         
-        # Save results for Stage 3 processing
-        logger.info("💾 Saving collected mentions for sentiment analysis...")
+        # Save results for backup
+        logger.info("💾 Saving collected mentions for backup...")
         import json
         with open('collected_mentions.json', 'w', encoding='utf-8') as f:
             json.dump({
@@ -102,8 +102,102 @@ def main():
         
         logger.info("Stage 2 Complete: Data collection and processing finished")
         
-        # TODO: Stage 3 - Implement sentiment analysis and storage
-        logger.info("Stage 3: Ready for sentiment analysis and storage (TODO)")
+        # Stage 3: Sentiment analysis and storage
+        logger.info("=== Stage 3: Starting sentiment analysis and storage ===")
+        
+        if not sorted_mentions:
+            logger.warning("No mentions available for sentiment analysis")
+        else:
+            try:
+                # Import Stage 3 modules
+                from analyze.sentiment import analyze_sentiment
+                from store.sheets import append_to_google_sheet, test_google_sheets_connection
+                
+                # Extract text content for sentiment analysis
+                texts_for_analysis = []
+                for mention in sorted_mentions:
+                    text = mention.get('text') or mention.get('content', '')
+                    texts_for_analysis.append(text)
+                
+                logger.info(f"🧠 Running sentiment analysis on {len(texts_for_analysis)} texts...")
+                
+                # Perform sentiment analysis
+                sentiment_results = analyze_sentiment(texts_for_analysis)
+                
+                if sentiment_results:
+                    # Combine original data with sentiment results
+                    analyzed_mentions = []
+                    for i, mention in enumerate(sorted_mentions):
+                        # Create copy of mention data
+                        analyzed_mention = mention.copy()
+                        
+                        # Add sentiment results
+                        if i < len(sentiment_results):
+                            sentiment_data = sentiment_results[i]
+                            analyzed_mention['sentiment_label'] = sentiment_data.get('sentiment_label', 'neutral')
+                            analyzed_mention['sentiment_score'] = sentiment_data.get('sentiment_score', 0.5)
+                            
+                            # Include additional sentiment metadata if available
+                            if 'all_scores' in sentiment_data:
+                                analyzed_mention['sentiment_all_scores'] = sentiment_data['all_scores']
+                            if 'error' in sentiment_data:
+                                analyzed_mention['sentiment_error'] = sentiment_data['error']
+                        else:
+                            # Fallback for missing sentiment data
+                            analyzed_mention['sentiment_label'] = 'neutral'
+                            analyzed_mention['sentiment_score'] = 0.5
+                        
+                        analyzed_mentions.append(analyzed_mention)
+                    
+                    logger.info(f"✅ Sentiment analysis completed for {len(analyzed_mentions)} mentions")
+                    
+                    # Test Google Sheets connection
+                    logger.info("🔗 Testing Google Sheets connection...")
+                    if test_google_sheets_connection():
+                        # Store results in Google Sheets
+                        logger.info("📊 Storing analyzed data in Google Sheets...")
+                        sheets_success = append_to_google_sheet(analyzed_mentions)
+                        
+                        if sheets_success:
+                            logger.info("✅ Data successfully stored in Google Sheets")
+                        else:
+                            logger.error("❌ Failed to store data in Google Sheets")
+                    else:
+                        logger.error("❌ Google Sheets connection test failed - skipping storage")
+                        logger.info("💡 Please check your GOOGLE_SERVICE_ACCOUNT_FILE environment variable")
+                    
+                    logger.info("Stage 3 Complete: Sentiment analysis and storage finished")
+                    
+                    # Save analyzed data for Stage 4
+                    analyzed_data = {
+                        'mentions': analyzed_mentions,
+                        'summary': summary,
+                        'sentiment_summary': {
+                            'total_analyzed': len(analyzed_mentions),
+                            'sentiment_distribution': {}
+                        },
+                        'analysis_timestamp': datetime.now().isoformat()
+                    }
+                    
+                    # Calculate sentiment distribution
+                    for mention in analyzed_mentions:
+                        label = mention.get('sentiment_label', 'neutral')
+                        analyzed_data['sentiment_summary']['sentiment_distribution'][label] = \
+                            analyzed_data['sentiment_summary']['sentiment_distribution'].get(label, 0) + 1
+                    
+                    with open('analyzed_mentions.json', 'w', encoding='utf-8') as f:
+                        json.dump(analyzed_data, f, indent=2, ensure_ascii=False)
+                    
+                else:
+                    logger.error("❌ Sentiment analysis returned no results")
+                    
+            except ImportError as e:
+                logger.error(f"❌ Failed to import Stage 3 modules: {e}")
+            except Exception as e:
+                logger.error(f"❌ Stage 3 failed with error: {e}")
+                logger.error(f"Error type: {type(e).__name__}")
+                import traceback
+                logger.error(f"Traceback: {traceback.format_exc()}")
         
         # TODO: Stage 4 - Implement alerting logic
         logger.info("Stage 4: Ready for alerting implementation (TODO)")

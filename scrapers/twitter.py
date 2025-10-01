@@ -67,7 +67,7 @@ def scrape_twitter_mentions(query: str = "Branch OR @BranchApp", limit: int = 10
                 'user': random.choice(sample_users),
                 'text': clean_text(sample_tweets[i % len(sample_tweets)]),  # Use modulo to cycle through samples
                 'timestamp': (datetime.now() - timedelta(days=random.randint(0, 6), hours=random.randint(0, 23))).isoformat(),
-                'url': f"https://twitter.com/x/status/{tweet_id}",
+                'url': f"https://x.com/status/{tweet_id}",
                 'metrics': {
                     'likes': random.randint(0, 50),
                     'retweets': random.randint(0, 20),
