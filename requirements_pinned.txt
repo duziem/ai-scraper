@@ -38,24 +38,24 @@ pyppeteer==2.0.0
 pyquery==2.0.1
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
-pytz==2022.7
+pytz==2024.2
 PyYAML==6.0.3
-regex==2023.10.31
-requests==2.32.0
+regex==2025.8.29
+requests==2.32.5
 requests-html==0.10.0
 requests-oauthlib==2.0.0
 rsa==4.9.1
 safetensors==0.6.2
-scipy==1.11.1
+scipy==1.16.1
 setuptools==80.9.0
 six==1.17.0
 snscrape==0.7.0.20230622
 soupsieve==2.8
 sympy==1.14.0
-tokenizers==0.22.1
+# tokenizers==0.13.1
 torch==2.8.0
 tqdm==4.67.1
-transformers==4.31.0
+# transformers==4.31.0
 typing_extensions==4.15.0
 tzlocal==5.3.1
 urllib3==1.26.20
