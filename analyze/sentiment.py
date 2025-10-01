@@ -200,13 +200,72 @@ def calculate_sentiment_threshold(sentiment_results: List[Dict[str, Any]], thres
     Calculate if negative sentiment crosses threshold and return top negative mentions
     
     Args:
-        sentiment_results: List of sentiment analysis results
+        sentiment_results: List of sentiment analysis results with combined mention data
         threshold: Negative sentiment threshold (default 20%)
         
     Returns:
         Tuple of (threshold_crossed, negative_percentage, top_negative_mentions)
     """
-    # TODO: Implement threshold calculation logic
-    # This will be implemented in Stage 4
+    logging.info(f"🎯 Calculating sentiment threshold with {len(sentiment_results)} mentions (threshold: {threshold:.1%})")
     
-    return False, 0.0, []
+    if not sentiment_results:
+        logging.warning("No sentiment results provided for threshold calculation")
+        return False, 0.0, []
+    
+    try:
+        # Count negative mentions and total valid mentions
+        negative_mentions = []
+        total_mentions = 0
+        
+        for mention in sentiment_results:
+            # Skip mentions without proper sentiment analysis
+            sentiment_label = mention.get('sentiment_label')
+            sentiment_score = mention.get('sentiment_score')
+            
+            if sentiment_label and sentiment_score is not None:
+                total_mentions += 1
+                
+                # Collect negative mentions
+                if sentiment_label.lower() == 'negative':
+                    negative_mentions.append(mention)
+        
+        if total_mentions == 0:
+            logging.warning("No valid sentiment results found for threshold calculation")
+            return False, 0.0, []
+        
+        # Calculate negative sentiment percentage
+        negative_count = len(negative_mentions)
+        negative_percentage = negative_count / total_mentions
+        
+        logging.info(f"📊 Sentiment analysis: {negative_count}/{total_mentions} negative ({negative_percentage:.1%})")
+        
+        # Check if threshold is crossed
+        threshold_crossed = negative_percentage >= threshold
+        
+        if threshold_crossed:
+            logging.warning(f"🚨 Negative sentiment threshold crossed: {negative_percentage:.1%} ≥ {threshold:.1%}")
+            
+            # Sort negative mentions by sentiment score (most negative first)
+            sorted_negative = sorted(
+                negative_mentions,
+                key=lambda x: x.get('sentiment_score', 0.0),  # Lower score = more negative
+                reverse=False  # Sort ascending (most negative first)
+            )
+            
+            # Get top 3 negative mentions
+            top_negative_mentions = sorted_negative[:3]
+            
+            logging.info(f"📋 Selected {len(top_negative_mentions)} top negative mentions for alert")
+            
+        else:
+            logging.info(f"✅ Negative sentiment below threshold: {negative_percentage:.1%} < {threshold:.1%}")
+            top_negative_mentions = []
+        
+        return threshold_crossed, negative_percentage, top_negative_mentions
+        
+    except Exception as e:
+        logging.error(f"❌ Error calculating sentiment threshold: {e}")
+        logging.error(f"Error type: {type(e).__name__}")
+        import traceback
+        logging.error(f"Traceback: {traceback.format_exc()}")
+        return False, 0.0, []

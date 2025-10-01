@@ -199,8 +199,76 @@ def main():
                 import traceback
                 logger.error(f"Traceback: {traceback.format_exc()}")
         
-        # TODO: Stage 4 - Implement alerting logic
-        logger.info("Stage 4: Ready for alerting implementation (TODO)")
+        # Stage 4: Alerting and final processing
+        logger.info("=== Stage 4: Starting alerting and automation ===")
+        
+        try:
+            # Import Stage 4 modules
+            from analyze.sentiment import calculate_sentiment_threshold
+            from alerts.slack import send_slack_alert, test_slack_webhook
+            
+            # Get threshold from environment (default 20%)
+            threshold_str = os.getenv('NEGATIVE_SENTIMENT_THRESHOLD', '0.20')
+            try:
+                threshold = float(threshold_str)
+            except ValueError:
+                logger.warning(f"Invalid threshold value '{threshold_str}', using default 0.20")
+                threshold = 0.20
+            
+            logger.info(f"🎯 Using negative sentiment threshold: {threshold:.1%}")
+            
+            # Check if we have analyzed mentions for alerting
+            if sorted_mentions and 'analyzed_mentions' in locals():
+                # Calculate sentiment threshold
+                logger.info("🧮 Calculating sentiment threshold for alerting...")
+                threshold_crossed, negative_percentage, top_negative_mentions = calculate_sentiment_threshold(
+                    analyzed_mentions, threshold
+                )
+                
+                logger.info(f"📊 Threshold analysis: {negative_percentage:.1%} negative (threshold: {threshold:.1%})")
+                
+                if threshold_crossed and top_negative_mentions:
+                    logger.warning(f"🚨 Negative sentiment threshold exceeded: {negative_percentage:.1%}")
+                    logger.info(f"📋 Preparing alert with {len(top_negative_mentions)} top negative mentions")
+                    
+                    # Test Slack webhook first
+                    logger.info("🧪 Testing Slack webhook connection...")
+                    if test_slack_webhook():
+                        # Send alert
+                        logger.info("🔔 Sending Slack alert...")
+                        alert_success = send_slack_alert(
+                            negative_percentage=negative_percentage,
+                            top_negative_mentions=top_negative_mentions,
+                            total_mentions=len(analyzed_mentions)
+                        )
+                        
+                        if alert_success:
+                            logger.info("✅ Slack alert sent successfully")
+                        else:
+                            logger.error("❌ Failed to send Slack alert")
+                    else:
+                        logger.error("❌ Slack webhook test failed - skipping alert")
+                        logger.info("💡 Please check your SLACK_WEBHOOK_URL environment variable")
+                        
+                else:
+                    logger.info(f"✅ Negative sentiment below threshold ({negative_percentage:.1%} < {threshold:.1%}) - no alert needed")
+                    
+            else:
+                logger.warning("⚠️  No analyzed mentions available for alerting")
+                if not sorted_mentions:
+                    logger.warning("   - No mentions were collected")
+                else:
+                    logger.warning("   - Stage 3 (sentiment analysis) may have failed")
+            
+            logger.info("Stage 4 Complete: Alerting and automation finished")
+            
+        except ImportError as e:
+            logger.error(f"❌ Failed to import Stage 4 modules: {e}")
+        except Exception as e:
+            logger.error(f"❌ Stage 4 failed with error: {e}")
+            logger.error(f"Error type: {type(e).__name__}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
         
         end_time = datetime.now()
         duration = end_time - start_time
